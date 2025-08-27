@@ -18,6 +18,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useAuth } from "@/contexts/AuthContext";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { 
   Brain, 
   FileText, 
@@ -35,6 +36,45 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+      {/* Navigation Header */}
+      <nav className="border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+        <Container size="4">
+          <Flex justify="between" align="center" className="py-4">
+            <Flex align="center" gap="2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
+                <BookOpen className="h-5 w-5 text-white" />
+              </div>
+              <Heading size="5" weight="bold" className="text-gray-900 dark:text-white">
+                EduCapture
+              </Heading>
+            </Flex>
+            
+            <Flex align="center" gap="3">
+              <ThemeToggle />
+              {user ? (
+                <Flex align="center" gap="2">
+                  <Text size="2" className="text-gray-600 dark:text-gray-400">
+                    Welcome, {user.first_name}
+                  </Text>
+                  <Link href="/dashboard">
+                    <Button size="sm">Dashboard</Button>
+                  </Link>
+                </Flex>
+              ) : (
+                <Flex gap="2">
+                  <Link href="/auth/login">
+                    <Button variant="ghost" size="sm">Sign In</Button>
+                  </Link>
+                  <Link href="/auth/register">
+                    <Button size="sm">Get Started</Button>
+                  </Link>
+                </Flex>
+              )}
+            </Flex>
+          </Flex>
+        </Container>
+      </nav>
+
       <Container size="4" className="py-8">
         {/* Hero Section */}
         <Section>

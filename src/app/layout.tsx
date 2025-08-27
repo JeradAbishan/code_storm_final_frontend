@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Theme } from "@radix-ui/themes";
 import { Navigation } from "@/components/navigation";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Code Storm Final - Frontend",
-  description: "Next.js frontend with Tailwind CSS, Radix UI, and shadcn/ui",
+  title: "EduCapture - Enhance Your Learning",
+  description: "AI-powered note enhancement and learning tools for students and educators",
 };
 
 export default function RootLayout({
@@ -25,19 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Theme
-          accentColor="blue"
-          grayColor="slate"
-          radius="large"
-          scaling="100%"
-        >
-          <Navigation />
-          {children}
-        </Theme>
+        <AuthProvider>
+          <Theme
+            accentColor="blue"
+            grayColor="slate"
+            radius="large"
+            scaling="100%"
+          >
+            <Navigation />
+            {children}
+          </Theme>
+        </AuthProvider>
       </body>
     </html>
   );
