@@ -232,7 +232,7 @@ export function LoginForm() {
           </Link>
           
           <div className="text-sm text-muted-foreground">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link 
               href="/auth/register" 
               className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 font-medium"

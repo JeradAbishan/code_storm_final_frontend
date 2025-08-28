@@ -86,7 +86,7 @@ export default function DocsPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <h4 className="font-medium mb-2">What's New in v4</h4>
+              <h4 className="font-medium mb-2">What&apos;s New in v4</h4>
               <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• New CSS engine built in Rust for better performance</li>
                 <li>• Native CSS custom properties support</li>
@@ -102,9 +102,9 @@ export default function DocsPage() {
               <h4 className="font-medium mb-2">Configuration</h4>
               <div className="bg-muted p-3 rounded-md">
                 <Code size="2">
-                  // postcss.config.mjs{"\n"}
-                  const config = {"{"}
-                  {"\n  "}plugins: ["@tailwindcss/postcss"],
+                  {/* postcss.config.mjs */}
+                  const config = &#123;
+                  {"\n  "}plugins: [&quot;@tailwindcss/postcss&quot;],
                   {"\n}"};
                 </Code>
               </div>
@@ -142,8 +142,8 @@ export default function DocsPage() {
                 <Code size="2">pnpm install @radix-ui/themes</Code>
                 <br />
                 <Code size="2">
-                  // Add to globals.css{"\n"}
-                  @import "@radix-ui/themes/styles.css";
+                  {/* Add to globals.css */}
+                  @import &quot;@radix-ui/themes/styles.css&quot;;
                 </Code>
               </div>
             </div>

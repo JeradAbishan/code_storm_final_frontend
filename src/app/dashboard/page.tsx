@@ -146,7 +146,7 @@ function DashboardContent() {
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
               <CardDescription>
-                Get started with EduCapture's powerful features
+                Get started with EduCapture&apos;s powerful features
               </CardDescription>
             </CardHeader>
             <CardContent>
