@@ -27,35 +27,35 @@ function VerifyEmailContent() {
       return;
     }
 
-    verifyEmail(token);
-  }, [token]);
+    const verifyEmail = async (verificationToken: string) => {
+      try {
+        await authService.verifyEmail(verificationToken);
 
-  const verifyEmail = async (verificationToken: string) => {
-    try {
-      const data = await authService.verifyEmail(verificationToken);
-
-      setStatus('success');
-      setMessage('Your email has been successfully verified!');
-      
-      // Redirect to login after 3 seconds
-      setTimeout(() => {
-        router.push('/auth/login?verified=true');
-      }, 3000);
-    } catch (error) {
-      if (error instanceof Error) {
-        if (error.message.includes('expired')) {
-          setStatus('expired');
-          setMessage('This verification link has expired. Please request a new one.');
+        setStatus('success');
+        setMessage('Your email has been successfully verified!');
+        
+        // Redirect to login after 3 seconds
+        setTimeout(() => {
+          router.push('/auth/login?verified=true');
+        }, 3000);
+      } catch (error) {
+        if (error instanceof Error) {
+          if (error.message.includes('expired')) {
+            setStatus('expired');
+            setMessage('This verification link has expired. Please request a new one.');
+          } else {
+            setStatus('error');
+            setMessage('Failed to verify email. Please try again.');
+          }
         } else {
           setStatus('error');
-          setMessage(error.message || 'Email verification failed');
+          setMessage('An unexpected error occurred.');
         }
-      } else {
-        setStatus('error');
-        setMessage('Email verification failed');
       }
-    }
-  };
+    };
+
+    verifyEmail(token);
+  }, [token, router]);
 
   const resendVerificationEmail = async () => {
     try {

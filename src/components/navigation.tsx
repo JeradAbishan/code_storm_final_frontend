@@ -50,29 +50,25 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-6">
             {user && (
               <>
-                <Link 
+                <Link
                   href="/dashboard"
                   className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    isActive('/dashboard') ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300'
+                    isActive("/dashboard")
+                      ? "text-blue-600"
+                      : "text-gray-600 dark:text-gray-300"
                   }`}
                 >
                   Dashboard
                 </Link>
-                <Link 
-                  href="/notes"
+                <Link
+                  href="/upload"
                   className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    isActive('/notes') ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300'
+                    isActive("/upload")
+                      ? "text-blue-600"
+                      : "text-gray-600 dark:text-gray-300"
                   }`}
                 >
-                  Notes
-                </Link>
-                <Link 
-                  href="/library"
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    isActive('/library') ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300'
-                  }`}
-                >
-                  Library
+                  Upload
                 </Link>
               </>
             )}
@@ -81,13 +77,13 @@ export function Navigation() {
           {/* User Actions */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            
+
             {user ? (
               <div className="flex items-center gap-3">
                 <span className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">
                   {user.first_name}
                 </span>
-                
+
                 <Button variant="ghost" size="sm" onClick={logout}>
                   <LogOut className="h-4 w-4 mr-2" />
                   Sign out
@@ -101,9 +97,7 @@ export function Navigation() {
                   </Button>
                 </Link>
                 <Link href="/auth/register">
-                  <Button size="sm">
-                    Get Started
-                  </Button>
+                  <Button size="sm">Get Started</Button>
                 </Link>
               </div>
             )}
@@ -133,35 +127,24 @@ export function Navigation() {
                   <Link
                     href="/dashboard"
                     className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                      isActive('/dashboard')
-                        ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800'
+                      isActive("/dashboard")
+                        ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Dashboard
                   </Link>
                   <Link
-                    href="/notes"
+                    href="/upload"
                     className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                      isActive('/notes')
-                        ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800'
+                      isActive("/upload")
+                        ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Notes
-                  </Link>
-                  <Link
-                    href="/library"
-                    className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                      isActive('/library')
-                        ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800'
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Library
+                    Upload
                   </Link>
                 </>
               )}

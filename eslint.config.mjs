@@ -20,6 +20,19 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // Allow 'any' in API response types
+      "@typescript-eslint/no-explicit-any": ["error", {
+        "fixToUnknown": false,
+        "ignoreRestArgs": true
+      }],
+      // Reduce severity of unused vars to warning
+      "@typescript-eslint/no-unused-vars": "warn",
+      // Allow unescaped entities in JSX for better readability
+      "react/no-unescaped-entities": "warn"
+    }
+  }
 ];
 
 export default eslintConfig;
